@@ -168,3 +168,4 @@ D:\OnlineJobPortal\JobPortalAPI\JobPortalAPI\obj\Debug\net8.0\refint\JobPortalAP
 D:\OnlineJobPortal\JobPortalAPI\JobPortalAPI\obj\Debug\net8.0\JobPortalAPI.pdb
 D:\OnlineJobPortal\JobPortalAPI\JobPortalAPI\obj\Debug\net8.0\JobPortalAPI.genruntimeconfig.cache
 D:\OnlineJobPortal\JobPortalAPI\JobPortalAPI\obj\Debug\net8.0\ref\JobPortalAPI.dll
+d:\OnlineJobPortal\JobPortalAPI\JobPortalAPI\obj\Debug\net8.0\JobPortalAPI.sourcelink.json

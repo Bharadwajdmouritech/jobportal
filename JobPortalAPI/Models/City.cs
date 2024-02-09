@@ -12,6 +12,7 @@ public class City
     public string CityName { get; set; } = null!;
 
     public string CityState { get; set; } = null!;
+    public bool IsActive {get;set;}
     public int CreatedBy { get; set; }
 
     public DateTime CreatedOn { get; set; }

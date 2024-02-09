@@ -10,6 +10,8 @@ public class JobFunction
     public int JobId { get; set; }
 
     public string? Job { get; set; }
+
+    public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
 

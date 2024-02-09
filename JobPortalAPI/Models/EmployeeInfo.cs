@@ -38,6 +38,7 @@ public class EmployeeInfo
     public string? OfferLetter { get; set; }
 
     public int? Experience { get; set; }
+    public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
 
