@@ -11,6 +11,7 @@ public class Designation
     public int DesignationId { get; set; }
 
     public string? Role { get; set; }
+    public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
 

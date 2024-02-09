@@ -38,6 +38,8 @@ public class Jd
     public string? Certification { get; set; }
 
     public DateTime? ExpiryOfRole { get; set; }
+
+    public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
 

@@ -21,6 +21,7 @@ public class Admin
 
     public int? CityId { get; set; }
     public DateTime JoiningDate{get;set;}
+    public bool IsActive {get;set;}
     public int CreatedBy { get; set; }
 
     public DateTime CreatedOn { get; set; }
