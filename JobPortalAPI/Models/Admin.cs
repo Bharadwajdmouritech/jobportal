@@ -30,8 +30,9 @@ public class Admin
 
     public DateTime ModifiedOn { get; set; }
 
+    [Timestamp]
     [ConcurrencyCheck]
-    public byte[]? RowTimeStamp { get; set; }
+    public byte[] RowTimeStamp { get; set; }
 
     public virtual City? City { get; set; }
 
