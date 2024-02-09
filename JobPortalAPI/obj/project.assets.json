@@ -4471,11 +4471,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OnlineJobPortal\\JobPortalAPI\\JobPortalAPI\\JobPortalAPI.csproj",
+      "projectUniqueName": "D:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
       "projectName": "JobPortalAPI",
-      "projectPath": "D:\\OnlineJobPortal\\JobPortalAPI\\JobPortalAPI\\JobPortalAPI.csproj",
+      "projectPath": "D:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
       "packagesPath": "C:\\Users\\venugopalna\\.nuget\\packages\\",
-      "outputPath": "D:\\OnlineJobPortal\\JobPortalAPI\\JobPortalAPI\\obj\\",
+      "outputPath": "D:\\JobPortal\\jobportal\\JobPortalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\venugopalna\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -68,7 +68,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("AdminId");
 
@@ -112,7 +114,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("CityId");
 
@@ -147,7 +151,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("DesignationId");
 
@@ -215,7 +221,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("SoftSkill")
                         .HasColumnType("nvarchar(max)");
@@ -303,7 +311,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("JobDescId");
 
@@ -346,7 +356,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("JobId");
 

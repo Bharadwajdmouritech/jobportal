@@ -21,8 +21,9 @@ public class Designation
 
     public DateTime ModifiedOn { get; set; }
 
+    [Timestamp]
     [ConcurrencyCheck]
-    public byte[]? RowTimeStamp { get; set; }
+    public byte[] RowTimeStamp { get; set; }
 
     public virtual ICollection<Admin> Admins { get; set; } = new List<Admin>();
 
