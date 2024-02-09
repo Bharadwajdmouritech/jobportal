@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "1VWlMLqKjPYP6LfGgMD9Z/TkmLXyO5hiX6kuR6RBSG8v687+VOV09/U3bxbiFiJFT2B7FNrk4MkZbY16w5+T4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\poonamc\\source\\repos\\InternalPOC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+=======
+  "dgSpecHash": "drDSLEZy8TPcMin2jEUqz5MSgXjZxBvuS5QN81eF6uA5fDld4LkdZjlsNeW9kOXqajSDSUx++PncQeAgRo4Jog==",
+  "success": true,
+  "projectFilePath": "D:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+>>>>>>> 5319a4a846ff7400981036b27942e1582b916561
   "expectedPackageFiles": [
     "C:\\Users\\poonamc\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\poonamc\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
