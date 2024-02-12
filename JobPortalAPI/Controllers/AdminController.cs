@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using JobPortalAPI.Repository.Interfaces;
+using JobPortalAPI.Models;
+
+namespace JobPortalAPI.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AdminController : ControllerBase
+    {
+           private IUnitofWorkRepository _unitOfWork;
+
+           public AdminController(IUnitofWorkRepository unitOfWork){
+                _unitOfWork = unitOfWork;
+           }
+
+           [HttpGet("GetAllAdmin")]
+           public async Task<IActionResult> GetAllAdmin()
+           {
+            var allAdmins = await _unitOfWork.masterRepo.GetAllAdmin();
+            return Ok(allAdmins);
+           }
+
+           [HttpPost("AddAdmin/admin")]
+           public async Task<IActionResult> AddAdmin(Admin admin)
+           {
+            await _unitOfWork.masterRepo.AddAdmin(admin);
+            return Ok("Admin added successfully!");
+           }
+
+           [HttpGet("GetAdminById/id")]
+           public async Task<IActionResult> GetAdminById(int id){
+            var admin = await _unitOfWork.masterRepo.GetAdminById(id);
+            return Ok(admin);
+           }
+
+           [HttpPost("UpdateAdminById/admin")]
+           public async Task<IActionResult> UpdateAdminById(Admin admin){
+            await _unitOfWork.masterRepo.UpdateAdminById(admin);
+            return Ok("Updated successfully!");
+           }
+
+            [HttpDelete("DeleteAdminById/id")]
+            public async Task<IActionResult> DeleteAdminById(int id){
+             await _unitOfWork.masterRepo.DeleteAdminById(id);
+             return Ok("Deleted successfully!");
+            }
+           
+
+    }
+}
