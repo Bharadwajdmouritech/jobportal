@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using JobPortalAPI.Models;
 
-namespace JobPortalAPI.Repository.Interfaces
+namespace JobPortalAPI.Service.Interfaces
 {
-    public interface IMasterRepository
+    public interface IMasterService
     {
         Task<List<Admin>> GetAllAdmin();
         Task AddAdmin(Admin admin);

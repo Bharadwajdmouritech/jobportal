@@ -7,6 +7,6 @@ namespace JobPortalAPI.Service.Interfaces
 {
     public interface IUnitOfWorkService
     {
-        
+        IMasterService masterService {get;}
     }
 }

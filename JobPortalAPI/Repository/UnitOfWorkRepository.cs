@@ -7,13 +7,14 @@ using JobPortalAPI.Data;
 
 namespace JobPortalAPI.Repository
 {
-    public class UnitofWorkRepository : IUnitofWorkRepository
+    public class UnitOfWorkRepository : IUnitOfWorkRepository
     {
         public IMasterRepository masterRepo {get;set;}
 
         private JobPortalDbContext _context;
 
-        public UnitofWorkRepository(JobPortalDbContext context){
+        public UnitOfWorkRepository(JobPortalDbContext context)
+        {
             _context = context;
             masterRepo = new MasterRepository(_context);
         }
