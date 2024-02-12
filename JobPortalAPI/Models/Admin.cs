@@ -15,13 +15,12 @@ public class Admin
 
     public string? EmailId { get; set; }
 
-    public int? DesignationId { get; set; }
-
     public string? LinkedinUrl { get; set; }
 
-    public int? CityId { get; set; }
     public DateTime JoiningDate{get;set;}
+
     public bool IsActive {get;set;}
+
     public int CreatedBy { get; set; }
 
     public DateTime CreatedOn { get; set; }
@@ -33,9 +32,11 @@ public class Admin
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
-
+    
+    public int? CityId { get; set; }
     public virtual City? City { get; set; }
-
+    
+    public int? DesignationId { get; set; }
     public virtual Designation? Designation { get; set; }
 
     public virtual ICollection<Jd> Jds { get; set; } = new List<Jd>();

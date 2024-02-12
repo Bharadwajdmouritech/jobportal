@@ -23,7 +23,7 @@ namespace JobPortalAPI.Repository
 
         public async Task AddAdmin(Admin admin){
             _context.Admins.Add(admin);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task<Admin> GetAdminById(int id){

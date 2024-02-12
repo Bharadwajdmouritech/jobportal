@@ -4471,19 +4471,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\poonamc\\source\\repos\\InternalPOC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
       "projectName": "JobPortalAPI",
       "projectPath": "C:\\Users\\poonamc\\source\\repos\\InternalPOC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
       "packagesPath": "C:\\Users\\poonamc\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\poonamc\\source\\repos\\InternalPOC\\jobportal\\JobPortalAPI\\obj\\",
-=======
-      "projectUniqueName": "D:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
-      "projectName": "JobPortalAPI",
-      "projectPath": "D:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
-      "packagesPath": "C:\\Users\\venugopalna\\.nuget\\packages\\",
-      "outputPath": "D:\\JobPortal\\jobportal\\JobPortalAPI\\obj\\",
->>>>>>> 5319a4a846ff7400981036b27942e1582b916561
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\poonamc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4559,5 +4551,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\poonamc\\source\\repos\\InternalPOC\\jobportal\\JobPortalAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
