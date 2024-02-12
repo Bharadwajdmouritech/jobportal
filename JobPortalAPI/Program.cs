@@ -3,6 +3,8 @@ using JobPortalAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using JobPortalAPI.Repository;
 using JobPortalAPI.Repository.Interfaces;
+using JobPortalAPI.Service.Interfaces;
+using JobPortalAPI.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<JobPortalDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IUnitofWorkRepository,UnitofWorkRepository>();
+
+builder.Services.AddScoped<IUnitOfWorkRepository,UnitOfWorkRepository>();
+builder.Services.AddScoped<IUnitOfWorkService, UnitOfWorkService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

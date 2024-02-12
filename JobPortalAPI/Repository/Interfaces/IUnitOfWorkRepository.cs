@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace JobPortalAPI.Repository.Interfaces
 {
-    public interface IUnitofWorkRepository
+    public interface IUnitOfWorkRepository
     {
         IMasterRepository masterRepo {get;}
     }
