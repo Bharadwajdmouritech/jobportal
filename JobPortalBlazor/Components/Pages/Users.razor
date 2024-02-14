@@ -1,0 +1,47 @@
+@page "/users"
+@using JobPortalAPI.Models;
+@using JobPortalBlazor.Components;
+@inject JobPortalBlazor.Services.AdminService adminService;
+@* @inject HttpClient Http; *@
+
+<PageTitle>All Admins</PageTitle>
+
+@if (adminList == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Company Name</th>
+        </thead>
+        <tbody>
+            @foreach (var admin in adminList)
+            {
+                <tr>
+                    <td>@admin.AdminName</td>
+                    <td>@admin.CompanyName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Admin> adminList = new List<Admin>();
+    @*protected override async Task OnInitializedAsync(){
+adminList=await Http.GetFromJsonAsync<List<Admin>>("api/Admin/GetAllAdmin");
+} *@
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAdmins();
+    }
+
+    private async Task GetAdmins()
+    {
+        adminList = await adminService.GetAdminData();
+    }
+}

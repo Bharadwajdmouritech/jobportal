@@ -4466,19 +4466,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\venugopalna\\.nuget\\packages\\": {}
+    "C:\\Users\\akhilbac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+      "projectUniqueName": "d:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
       "projectName": "JobPortalAPI",
-      "projectPath": "D:\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
-      "packagesPath": "C:\\Users\\venugopalna\\.nuget\\packages\\",
-      "outputPath": "D:\\jobportal\\JobPortalAPI\\obj\\",
+      "projectPath": "d:\\JobPortal\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+      "packagesPath": "C:\\Users\\akhilbac\\.nuget\\packages\\",
+      "outputPath": "d:\\JobPortal\\jobportal\\JobPortalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\venugopalna\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\akhilbac\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -4546,7 +4546,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
