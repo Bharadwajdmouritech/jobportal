@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JobPortalAPI.Models;
 using JobPortalAPI.Repository.Interfaces;
 using JobPortalAPI.Service.Interfaces;
+using JobPortalAPI.SP_Models;
 
 namespace JobPortalAPI.Service
 {
@@ -15,55 +16,33 @@ namespace JobPortalAPI.Service
         {
             _unitOfWorkRepository = unitOfWorkRepository;
         }
-        public async Task<List<Admin>> GetAllAdmin()
+        public async Task<List<City>> GetAllCities()
         {
-            return await _unitOfWorkRepository.masterRepo.GetAllAdmin();
-        }
-
-        public async Task AddAdmin(Admin admin)
-        {
-            await _unitOfWorkRepository.masterRepo.AddAdmin(admin);
-        }
-
-        public async Task<Admin> GetAdminById(int id)
-        {
-            return await _unitOfWorkRepository.masterRepo.GetAdminById(id);
-        }
-
-        public async Task UpdateAdminById(Admin admin)
-        {
-            await _unitOfWorkRepository.masterRepo.UpdateAdminById(admin);
-        }
-
-        public async Task DeleteAdminById(int id)
-        {
-            await _unitOfWorkRepository.masterRepo.DeleteAdminById(id);
-        }
-        public async Task<List<City>> GetAllCity()
-        {
-            return await _unitOfWorkRepository.masterRepo.GetAllCity();
+            return await _unitOfWorkRepository.masterRepo.GetAllCities();
         }
         public async Task<City> GetCityById(int id)
         {
             return await _unitOfWorkRepository.masterRepo.GetCityById(id);
         }
-        public async Task<List<Designation>> GetAllDesignation()
+        public async Task<List<Designation>> GetAllDesignations()
         {
-            return await _unitOfWorkRepository.masterRepo.GetAllDesignation();
+            return await _unitOfWorkRepository.masterRepo.GetAllDesignations();
         }
         public async Task<Designation> GetDesignationById(int id)
         {
             return await _unitOfWorkRepository.masterRepo.GetDesignationById(id);
         }
-        public async Task<List<JobFunction>> GetAllJobFunction()
+        public async Task<List<JobFunction>> GetAllJobFunctions()
         {
-            return await _unitOfWorkRepository.masterRepo.GetAllJobFunction();
+            return await _unitOfWorkRepository.masterRepo.GetAllJobFunctions();
         }
         public async Task<JobFunction> GetJobFunctionById(int id)
         {
             return await _unitOfWorkRepository.masterRepo.GetJobFunctionById(id);
         }
-
-
+        public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
+        {
+            return await _unitOfWorkRepository.masterRepo.GetSPJobTitleWithFunction();
+        }
     }
 }
