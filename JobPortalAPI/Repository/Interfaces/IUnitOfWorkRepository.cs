@@ -8,5 +8,7 @@ namespace JobPortalAPI.Repository.Interfaces
     public interface IUnitOfWorkRepository
     {
         IMasterRepository masterRepo {get;}
+        IJdRepository  jdRepo {get;}
+        IAdminRepository adminRepository {get;}
     }
 }
