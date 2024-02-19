@@ -14,12 +14,14 @@ namespace JobPortalAPI.Service
         public IMasterService masterService {get; private set;}
         public IJdService jdService {get; private set;}
         public IAdminService adminService {get; private set;}
+        public IEmployeeService employeeService{get;private set;}
         public  UnitOfWorkService(IUnitOfWorkRepository unitOfWorkRepository)
         {
             _unitOfWorkRepository = unitOfWorkRepository;
             masterService=new MasterService(_unitOfWorkRepository);
             jdService=new JdService(_unitOfWorkRepository);
             adminService = new AdminService(_unitOfWorkRepository);
+            employeeService=new EmployeeService(_unitOfWorkRepository);
         }
     }
 }

@@ -28,7 +28,7 @@ public class Admin
     public int ModifiedBy { get; set; }
 
     public DateTime ModifiedOn { get; set; }
-
+    
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
@@ -39,5 +39,5 @@ public class Admin
     public int? DesignationId { get; set; }
     public virtual Designation? Designation { get; set; }
 
-    public virtual ICollection<Jd> Jds { get; set; } = new List<Jd>();
+    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
 }

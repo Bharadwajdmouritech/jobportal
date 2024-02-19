@@ -16,30 +16,30 @@ namespace JobPortalAPI.Service
             _unitOfWorkRepository = unitOfWorkRepository;
         }
 
-        public async Task<List<Jd>> GetAllJds()
+        public async Task<List<JobDescription>> GetAllJds()
         {
             var getAllJds = await _unitOfWorkRepository.jdRepo.GetAllJds();
             return getAllJds;
         }
 
-        public async Task<Jd> GetJdById(int id)
+        public async Task<JobDescription> GetJdById(int id)
         {
             var getJd = await _unitOfWorkRepository.jdRepo.GetJdById(id);
             return getJd;
         }
 
-        public async Task<Jd> InsertJd(Jd jd)
+        public async Task<JobDescription> InsertJd(JobDescription jd)
         {
             var addJd = await _unitOfWorkRepository.jdRepo.InsertJd(jd);
             return addJd;
         }
 
-        public async Task<Jd> UpdateJd(Jd jd)
+        public async Task<JobDescription> UpdateJd(JobDescription jd)
         {
             var updateJd = await _unitOfWorkRepository.jdRepo.UpdateJd(jd);
             return updateJd;
         }
-        public async Task<Jd> DeleteJd(Jd jd)
+        public async Task<JobDescription> DeleteJd(JobDescription jd)
         {
             var deleteJd = await _unitOfWorkRepository.jdRepo.DeleteJd(jd);
             return deleteJd;

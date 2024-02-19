@@ -29,5 +29,5 @@ public class City
 
     public virtual ICollection<EmployeeInfo> EmployeeInfos { get; set; } = new List<EmployeeInfo>();
 
-    public virtual ICollection<Jd> Jds { get; set; } = new List<Jd>();
+    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
 }

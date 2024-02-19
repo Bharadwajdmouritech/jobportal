@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using JobPortalAPI.Repository.Interfaces;
 using JobPortalAPI.Models;
-using JobPortalAPI.Repository;
 using JobPortalAPI.Service.Interfaces;
 
 namespace JobPortalAPI.Controller
@@ -21,7 +15,7 @@ namespace JobPortalAPI.Controller
         }
         [HttpGet]
         [Route("GetAllAdmins")]
-        public async Task<ActionResult<List<Admin>>> GetAllAdmins()
+        public async Task<ActionResult> GetAllAdmins()
         {
             var getAllAdmins = await _unitOfWorkService.adminService.GetAllAdmins();
             return Ok(getAllAdmins);
@@ -36,13 +30,13 @@ namespace JobPortalAPI.Controller
         }
 
         [HttpPost]
-        [Route("InsertAdmin")]
-        public async Task<ActionResult<Admin>> InsertAdmin(Admin admin)
+        [Route("AddAdmin")]
+        public async Task<ActionResult> AddAdmin(Admin admin)
         {
             if(ModelState.IsValid)
             {
-                var addAdmin = await _unitOfWorkService.adminService.InsertAdmin(admin);
-                return Ok(addAdmin);
+                await _unitOfWorkService.adminService.InsertAdmin(admin);
+                return Ok("Admin added successfully!");
             }
             else
             {
@@ -52,12 +46,12 @@ namespace JobPortalAPI.Controller
 
         [HttpPut]
         [Route("UpdateAdmin")]
-        public async Task<ActionResult<Admin>> UpdateAdmin(Admin admin)
+        public async Task<ActionResult> UpdateAdmin(Admin admin)
         {
             if(ModelState.IsValid)
             {
-                var updateAdmin = await _unitOfWorkService.adminService.UpdateAdmin(admin);
-                return Ok(updateAdmin);
+                await _unitOfWorkService.adminService.UpdateAdmin(admin);
+                return Ok("Admin updated successfully!");
             }
             else
             {
@@ -67,10 +61,10 @@ namespace JobPortalAPI.Controller
 
         [HttpDelete]
         [Route("DeleteAdmin")]
-        public async Task<ActionResult<Admin>> DeleteAdmin(Admin admin)
+        public async Task<ActionResult> DeleteAdmin(int id)
         {
-            var deleteAdmin = await _unitOfWorkService.adminService.DeleteAdmin(admin);
-            return Ok(deleteAdmin);
+            await _unitOfWorkService.adminService.DeleteAdmin(id);
+            return Ok("Admin deleted successfully!");
         }      
     }
 }

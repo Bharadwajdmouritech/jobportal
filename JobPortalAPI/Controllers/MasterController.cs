@@ -51,7 +51,7 @@ namespace JobPortalAPI.Controllers
         }
         [HttpGet]
         [Route("GetAllJobFunctions")]
-        public async Task<ActionResult<List<JobFunction>>> GetAllJobFunctions()
+        public async Task<ActionResult<List<Roles>>> GetAllJobFunctions()
         {
             var getAllAdmins = await _unitOfWorkService.masterService.GetAllJobFunctions();
             return Ok(getAllAdmins);
@@ -59,7 +59,7 @@ namespace JobPortalAPI.Controllers
         
         [HttpGet]
         [Route("GetJobFunctionById")]
-        public async Task<ActionResult<JobFunction>> GetJobFunctionById(int id)
+        public async Task<ActionResult<Roles>> GetJobFunctionById(int id)
         {
             var getAdmin = await _unitOfWorkService.masterService.GetJobFunctionById(id);
             return Ok(getAdmin);

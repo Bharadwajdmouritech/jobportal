@@ -10,7 +10,10 @@ public class Designation
     [Key]
     public int DesignationId { get; set; }
 
-    public string? Role { get; set; }
+    public string? DesignationName { get; set; }
+
+    public int? RoleId {get; set;}
+    public virtual Roles? Roles {get;set;}
     public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
@@ -27,5 +30,5 @@ public class Designation
 
     public virtual ICollection<Admin> Admins { get; set; } = new List<Admin>();
 
-    public virtual ICollection<Jd> Jds { get; set; } = new List<Jd>();
+    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
 }

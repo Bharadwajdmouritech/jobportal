@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobPortalAPI.Models;
 
-public class Jd
+public class JobDescription
 {
      [Key]
     public int JobDescId { get; set; }
@@ -19,7 +19,7 @@ public class Jd
 
     public DateTime? JoiningDate { get; set; }
 
-    public string? JobDescription { get; set; }
+    public string? Description { get; set; }
 
     public int? AdminId { get; set; }
 
@@ -48,7 +48,7 @@ public class Jd
     public int ModifiedBy { get; set; }
 
     public DateTime ModifiedOn { get; set; }
-
+    
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
@@ -59,5 +59,5 @@ public class Jd
 
     public virtual Designation? Designation { get; set; }
 
-    public virtual JobFunction? Job { get; set; }
+    public virtual Roles? Roles { get; set; }
 }

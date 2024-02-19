@@ -34,13 +34,13 @@ namespace JobPortalAPI.Repository
         {
             return await _context.Designations.FirstOrDefaultAsync(a => a.DesignationId == id);
         }
-        public async Task<List<JobFunction>> GetAllJobFunctions()
+        public async Task<List<Roles>> GetAllJobFunctions()
         {
-            return await _context.JobFunctions.ToListAsync();
+            return await _context.Roles.ToListAsync();
         }
-        public async Task<JobFunction> GetJobFunctionById(int id)
+        public async Task<Roles> GetJobFunctionById(int id)
         {
-            return await _context.JobFunctions.FirstOrDefaultAsync(a => a.JobId == id);
+            return await _context.Roles.FirstOrDefaultAsync(a => a.RoleId == id);
         }
         public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
         {

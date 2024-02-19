@@ -28,21 +28,18 @@ namespace JobPortalAPI.Service
             return getAdmin;
         }
 
-        public async Task<Admin> InsertAdmin(Admin admin)
+        public async Task InsertAdmin(Admin admin)
         {
-            var addAdmin = await _unitOfWorkRepository.adminRepository.InsertAdmin(admin);
-            return addAdmin;
+            await _unitOfWorkRepository.adminRepository.InsertAdmin(admin);
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task UpdateAdmin(Admin admin)
         {
-            var updateAdmin = await _unitOfWorkRepository.adminRepository.UpdateAdmin(admin);
-            return updateAdmin;
+            await _unitOfWorkRepository.adminRepository.UpdateAdmin(admin);
         }
-        public async Task<Admin> DeleteAdmin(Admin admin)
+        public async Task DeleteAdmin(int id)
         {
-            var deleteAdmin = await _unitOfWorkRepository.adminRepository.DeleteAdmin(admin);
-            return deleteAdmin;
+            await _unitOfWorkRepository.adminRepository.DeleteAdmin(id);
         }
     }
 }

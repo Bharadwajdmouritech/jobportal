@@ -10,5 +10,6 @@ namespace JobPortalAPI.Service.Interfaces
         IMasterService masterService {get;}
         IJdService jdService {get;}
         IAdminService adminService {get;}
+        IEmployeeService employeeService{get;}
     }
 }

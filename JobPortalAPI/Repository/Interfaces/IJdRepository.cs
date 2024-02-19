@@ -8,10 +8,10 @@ namespace JobPortalAPI.Repository.Interfaces
 {
     public interface IJdRepository
     {
-        Task<List<Jd>> GetAllJds();
-        Task<Jd> GetJdById(int id);
-        Task<Jd> InsertJd(Jd jd);
-        Task<Jd> UpdateJd(Jd jd);
-        Task<Jd> DeleteJd(Jd jd);
+        Task<List<JobDescription>> GetAllJds();
+        Task<JobDescription> GetJdById(int id);
+        Task<JobDescription> InsertJd(JobDescription jd);
+        Task<JobDescription> UpdateJd(JobDescription jd);
+        Task<JobDescription> DeleteJd(JobDescription jd);
     }
 }

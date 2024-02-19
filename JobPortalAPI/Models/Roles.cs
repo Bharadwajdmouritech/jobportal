@@ -4,13 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobPortalAPI.Models;
 
-public class JobFunction
+public class Roles
 {
      [Key]
-    public int JobId { get; set; }
+    public int RoleId { get; set; }
 
-    public string? Job { get; set; }
-
+    public string? Role { get; set; }
     public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }
@@ -24,6 +23,6 @@ public class JobFunction
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
-
-    public virtual ICollection<Jd> Jds { get; set; } = new List<Jd>();
+    public virtual ICollection<Designation> Designations {get;set;}=new List<Designation>();
+    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
 }

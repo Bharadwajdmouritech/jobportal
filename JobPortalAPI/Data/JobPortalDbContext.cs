@@ -26,10 +26,11 @@ namespace JobPortalAPI.Data
         public virtual DbSet<Designation> Designations { get; set; }
 
         public virtual DbSet<EmployeeInfo> EmployeeInfos { get; set; }
+        public virtual DbSet<EmployeeDocument> EmployeeDocuments { get; set; }
 
-        public virtual DbSet<Jd> Jds { get; set; }
+        public virtual DbSet<JobDescription> JobDescriptions { get; set; }
 
-        public virtual DbSet<JobFunction> JobFunctions { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
 
             
     }

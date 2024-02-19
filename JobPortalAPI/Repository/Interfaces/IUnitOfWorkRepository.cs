@@ -10,5 +10,6 @@ namespace JobPortalAPI.Repository.Interfaces
         IMasterRepository masterRepo {get;}
         IJdRepository  jdRepo {get;}
         IAdminRepository adminRepository {get;}
+        IEmployeeRepository employeeRepository{get;}
     }
 }

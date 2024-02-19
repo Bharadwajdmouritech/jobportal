@@ -10,8 +10,8 @@ namespace JobPortalAPI.Service.Interfaces
     {
         Task<List<Admin>> GetAllAdmins();
         Task<Admin> GetAdminById(int id);
-        Task<Admin> InsertAdmin(Admin Admin);
-        Task<Admin> UpdateAdmin(Admin Admin);
-        Task<Admin> DeleteAdmin(Admin Admin); 
+        Task InsertAdmin(Admin Admin);
+        Task UpdateAdmin(Admin Admin);
+        Task DeleteAdmin(int id); 
     }
 }

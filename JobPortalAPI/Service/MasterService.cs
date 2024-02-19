@@ -32,11 +32,11 @@ namespace JobPortalAPI.Service
         {
             return await _unitOfWorkRepository.masterRepo.GetDesignationById(id);
         }
-        public async Task<List<JobFunction>> GetAllJobFunctions()
+        public async Task<List<Roles>> GetAllJobFunctions()
         {
             return await _unitOfWorkRepository.masterRepo.GetAllJobFunctions();
         }
-        public async Task<JobFunction> GetJobFunctionById(int id)
+        public async Task<Roles> GetJobFunctionById(int id)
         {
             return await _unitOfWorkRepository.masterRepo.GetJobFunctionById(id);
         }

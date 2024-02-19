@@ -47,10 +47,11 @@ public class EmployeeInfo
     public int ModifiedBy { get; set; }
 
     public DateTime ModifiedOn { get; set; }
-
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
 
     public virtual City? City { get; set; }
+
+    public List<EmployeeDocument> EmployeeDocuments {get;set;}
 }

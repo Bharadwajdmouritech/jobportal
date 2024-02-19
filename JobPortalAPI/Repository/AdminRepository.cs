@@ -30,31 +30,26 @@ namespace JobPortalAPI.Repository
             return getAdmin;
         }
 
-        public async Task<Admin> InsertAdmin(Admin admin)
+        public async Task InsertAdmin(Admin admin)
         {
             var addAdmin = await _jobPortalDbContext.Admins.AddAsync(admin);
             await _jobPortalDbContext.SaveChangesAsync();
-            return addAdmin.Entity;
+            // return addAdmin.Entity;
         }
 
-        public async Task<Admin> UpdateAdmin(Admin admin)
+        public async Task UpdateAdmin(Admin admin)
         {
              var updateAdmin = _jobPortalDbContext.Admins.Update(admin);
              await _jobPortalDbContext.SaveChangesAsync();
-            return await Task.FromResult(updateAdmin.Entity);
+            // return await Task.FromResult(updateAdmin.Entity);
         }
-        public async Task<Admin> DeleteAdmin(Admin admin)
+        public async Task DeleteAdmin(int id)
         {
-            var deleteAdmin = await _jobPortalDbContext.Admins.Where(x=>x.AdminId.Equals(admin.AdminId)).FirstOrDefaultAsync();
+            var deleteAdmin = await _jobPortalDbContext.Admins.Where(x=>x.AdminId.Equals(id)).FirstOrDefaultAsync();
             if(deleteAdmin != null)
             {
                 var data = _jobPortalDbContext.Admins.Remove(deleteAdmin);
                 await _jobPortalDbContext.SaveChangesAsync();
-                return deleteAdmin;
-            }
-            else
-            {
-                return null;
             }
         } 
     }

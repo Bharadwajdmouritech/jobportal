@@ -19,7 +19,7 @@ namespace JobPortalAPI.Controller
         }
         [HttpGet]
         [Route("GetAllJds")]
-        public async Task<ActionResult<List<Jd>>> GetAllJds()
+        public async Task<ActionResult<List<JobDescription>>> GetAllJds()
         {
             var getAllJds = await _unitOfWorkService.jdService.GetAllJds();
             return Ok(getAllJds);
@@ -27,15 +27,15 @@ namespace JobPortalAPI.Controller
         
         [HttpGet]
         [Route("GetJdById")]
-        public async Task<ActionResult<Jd>> GetJdById(int id)
+        public async Task<ActionResult<JobDescription>> GetJdById(int id)
         {
             var getJd = await _unitOfWorkService.jdService.GetJdById(id);
             return Ok(getJd);
         }
 
         [HttpPost]
-        [Route("InsertJd")]
-        public async Task<ActionResult<Jd>> InsertJd(Jd jd)
+        [Route("AddJd")]
+        public async Task<ActionResult<JobDescription>> AddJd(JobDescription jd)
         {
             if(ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace JobPortalAPI.Controller
 
         [HttpPut]
         [Route("UpdateJd")]
-        public async Task<ActionResult<Jd>> UpdateJd(Jd jd)
+        public async Task<ActionResult<JobDescription>> UpdateJd(JobDescription jd)
         {
             if(ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace JobPortalAPI.Controller
 
         [HttpDelete]
         [Route("DeleteJd")]
-        public async Task<ActionResult<Jd>> DeleteJd(Jd jd)
+        public async Task<ActionResult<JobDescription>> DeleteJd(JobDescription jd)
         {
             var deleteJd = await _unitOfWorkService.jdService.DeleteJd(jd);
             return Ok(deleteJd);
