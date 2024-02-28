@@ -37,12 +37,33 @@ namespace JobPortalAPI.Repository
             // return addAdmin.Entity;
         }
 
-        public async Task UpdateAdmin(Admin admin)
-        {
-             var updateAdmin = _jobPortalDbContext.Admins.Update(admin);
-             await _jobPortalDbContext.SaveChangesAsync();
-            // return await Task.FromResult(updateAdmin.Entity);
+        // public async Task UpdateAdmin(Admin admin)
+        // {
+        //      var updateAdmin = _jobPortalDbContext.Admins.Update(admin);
+        //      await _jobPortalDbContext.SaveChangesAsync();
+        //     // return await Task.FromResult(updateAdmin.Entity);
+        // }
+
+        public async Task UpdateAdmin(Admin admin){
+            var adminToUpdate = await _jobPortalDbContext.Admins.FirstOrDefaultAsync(e=>e.AdminId == admin.AdminId);
+            if (adminToUpdate != null)
+            {
+                adminToUpdate.AdminName = admin.AdminName;
+                adminToUpdate.CompanyName = admin.CompanyName;
+                adminToUpdate.EmailId = admin.EmailId;
+                adminToUpdate.LinkedinUrl = admin.LinkedinUrl;
+                adminToUpdate.JoiningDate = admin.JoiningDate;
+                adminToUpdate.IsActive = admin.IsActive;
+                adminToUpdate.CreatedBy = admin.CreatedBy;
+                adminToUpdate.CreatedOn = admin.CreatedOn;
+                adminToUpdate.ModifiedBy = admin.ModifiedBy;
+                adminToUpdate.ModifiedOn = admin.ModifiedOn;
+                adminToUpdate.CityId = admin.CityId;
+                adminToUpdate.DesignationId = admin.DesignationId;
+                await _jobPortalDbContext.SaveChangesAsync();
+            }
         }
+
         public async Task DeleteAdmin(int id)
         {
             var deleteAdmin = await _jobPortalDbContext.Admins.Where(x=>x.AdminId.Equals(id)).FirstOrDefaultAsync();

@@ -13,31 +13,31 @@ public class EmployeeInfo
 
     public string? CollegeName { get; set; }
 
-    public string? Qualification { get; set; }
+    public string? Qualification { get; set; }=null;
 
-    public int? Percentage { get; set; }
+    public int? Percentage { get; set; }=null;
 
-    public string? Speciality { get; set; }
+    public string? Speciality { get; set; }=null;
 
-    public string? TechnologiesStudied { get; set; }
+    public string? TechnologiesStudied { get; set; }=null;
 
-    public string? SoftSkill { get; set; }
+    public string? SoftSkill { get; set; }=null;
 
-    public string? Internship { get; set; }
+    public string? Internship { get; set; }=null;
 
-    public string? Certification { get; set; }
+    public string? Certification { get; set; }=null;
 
-    public string? EmailId { get; set; }
+    public string? EmailId { get; set; }=null;
 
-    public int? PhoneNumber { get; set; }
+    public int? PhoneNumber { get; set; }=null;
 
-    public string? LinkedinUrl { get; set; }
+    public string? LinkedinUrl { get; set; }=null;
 
-    public int? CityId { get; set; }
+    public int? CityId { get; set; }=null;
 
-    public string? OfferLetter { get; set; }
+    public string? OfferLetter { get; set; }=null;
 
-    public int? Experience { get; set; }
+    public int? Experience { get; set; }=null;
     public bool IsActive {get;set;}
     
     public int CreatedBy { get; set; }

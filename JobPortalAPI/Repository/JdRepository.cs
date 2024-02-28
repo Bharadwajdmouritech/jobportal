@@ -42,18 +42,13 @@ namespace JobPortalAPI.Repository
             await _jobPortalDbContext.SaveChangesAsync();
             return await Task.FromResult(updateJd.Entity);
         }
-        public async Task<JobDescription> DeleteJd(JobDescription jd)
+        public async Task DeleteJd(int id)
         {
-            var deleteJd = await _jobPortalDbContext.JobDescriptions.Where(x=>x.JobDescId.Equals(jd.JobDescId)).FirstOrDefaultAsync();
+            var deleteJd = await _jobPortalDbContext.JobDescriptions.Where(x=>x.JobDescId.Equals(id)).FirstOrDefaultAsync();
             if(deleteJd != null)
             {
                 var data = _jobPortalDbContext.JobDescriptions.Remove(deleteJd);
                 await _jobPortalDbContext.SaveChangesAsync();
-                return deleteJd;
-            }
-            else
-            {
-                return null;
             }
         }
 

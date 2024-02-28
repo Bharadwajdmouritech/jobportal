@@ -34,7 +34,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpPost]
-        [Route("AddEmployee/employee")]
+        [Route("AddEmployee/{employee}")]
         public async Task<ActionResult> AddEmployee(Employee employee)
         {
            
