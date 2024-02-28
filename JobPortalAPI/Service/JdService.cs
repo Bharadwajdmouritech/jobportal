@@ -39,10 +39,9 @@ namespace JobPortalAPI.Service
             var updateJd = await _unitOfWorkRepository.jdRepo.UpdateJd(jd);
             return updateJd;
         }
-        public async Task<JobDescription> DeleteJd(JobDescription jd)
+        public async Task DeleteJd(int id)
         {
-            var deleteJd = await _unitOfWorkRepository.jdRepo.DeleteJd(jd);
-            return deleteJd;
+            await _unitOfWorkRepository.jdRepo.DeleteJd(id);
         }
     }
 }

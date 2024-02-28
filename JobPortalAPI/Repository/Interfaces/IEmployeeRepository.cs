@@ -10,9 +10,9 @@ namespace JobPortalAPI.Repository.Interfaces
     public interface IEmployeeRepository
     {
         Task AddEmployee(Employee employee);
-       Task<List<EmployeeInfo>> GetAllEmployee();
-       Task<EmployeeInfo> GetEmployeeById(int id);
-       Task UpdateEmployee(Employee employee);
-       Task DeleteEmployeeById(int id);
+        Task<List<EmployeeInfo>> GetAllEmployee();
+        Task<EmployeeInfo> GetEmployeeById(int id);
+        Task UpdateEmployee(Employee employee);
+        Task DeleteEmployeeById(int id);
     }
 }

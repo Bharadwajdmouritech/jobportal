@@ -12,6 +12,6 @@ namespace JobPortalAPI.Repository.Interfaces
         Task<JobDescription> GetJdById(int id);
         Task<JobDescription> InsertJd(JobDescription jd);
         Task<JobDescription> UpdateJd(JobDescription jd);
-        Task<JobDescription> DeleteJd(JobDescription jd);
+        Task DeleteJd(int id);
     }
 }

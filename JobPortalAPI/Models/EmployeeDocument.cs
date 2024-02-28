@@ -12,15 +12,15 @@ namespace JobPortalAPI.Models
         public int? DocumentId{get;set;}
         public int? EmployeeId { get; set; }
         
-        public byte[]? GraduationMarksheet {get;set;}
-        public byte[]? PassingCertificate {get;set;}
-        public byte[]? AadharCard {get;set;}
-        public byte[]? PANCard {get;set;}
-        public byte[]? PassportDoc {get;set;}
-        public byte[]? IdentityPhoto {get;set;}
-        public byte[]? TenthMarksheet {get;set;}
-        public byte[]? TwelthMarksheet{get;set;}
-        public byte[]? Resume {get;set;}
+        public byte[]? GraduationMarksheet {get;set;}=null;
+        public byte[]? PassingCertificate {get;set;}=null;
+        public byte[]? AadharCard {get;set;}=null;
+        public byte[]? PANCard {get;set;}=null;
+        public byte[]? PassportDoc {get;set;}=null;
+        public byte[]? IdentityPhoto {get;set;}=null;
+        public byte[]? TenthMarksheet {get;set;}=null;
+        public byte[]? TwelthMarksheet{get;set;}=null;
+        public byte[]? Resume {get;set;}=null;
         public int CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public int ModifiedBy { get; set; }

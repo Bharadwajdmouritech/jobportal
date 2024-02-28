@@ -15,6 +15,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<JobPortalDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddCors(options=>{options.AddPolicy(name:"AllowBlazorOrigin",builder=>{builder.WithOrigins("http://localhost:5024","https://localhost:7040");});});
+
 builder.Services.AddScoped<IUnitOfWorkRepository,UnitOfWorkRepository>();
 builder.Services.AddScoped<IUnitOfWorkService, UnitOfWorkService>();
 
@@ -33,6 +35,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();
-app.UseCors(x=>x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+app.UseCors("AllowBlazorOrigin");
+// app.UseCors(x=>x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.MapControllers();
 app.Run();

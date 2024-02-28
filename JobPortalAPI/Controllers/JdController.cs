@@ -64,11 +64,11 @@ namespace JobPortalAPI.Controller
         }
 
         [HttpDelete]
-        [Route("DeleteJd")]
-        public async Task<ActionResult<JobDescription>> DeleteJd(JobDescription jd)
+        [Route("DeleteJdById")]
+        public async Task<ActionResult> DeleteJdById(int id)
         {
-            var deleteJd = await _unitOfWorkService.jdService.DeleteJd(jd);
-            return Ok(deleteJd);
+            await _unitOfWorkService.jdService.DeleteJd(id);
+            return Ok("Deleted Successfully");
         }    
     }
 }
