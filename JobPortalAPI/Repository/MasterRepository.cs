@@ -26,14 +26,6 @@ namespace JobPortalAPI.Repository
         {
             return await _context.Cities.FirstOrDefaultAsync(a => a.CityId == id);
         }
-        public async Task<List<Designation>> GetAllDesignations()
-        {
-            return await _context.Designations.ToListAsync();
-        }
-        public async Task<Designation> GetDesignationById(int id)
-        {
-            return await _context.Designations.FirstOrDefaultAsync(a => a.DesignationId == id);
-        }
         public async Task<List<Roles>> GetAllJobFunctions()
         {
             return await _context.Roles.ToListAsync();
@@ -42,11 +34,37 @@ namespace JobPortalAPI.Repository
         {
             return await _context.Roles.FirstOrDefaultAsync(a => a.RoleId == id);
         }
-        public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
+
+        public async Task<JobsByFunction> GetJobsByFunctionName(string name)
         {
-            var conn = _context.Database.GetDbConnection();
-            var userTasks = await conn.QueryAsync<JobTitleWithFunctionClass>("EXEC [dbo].[SP_JobTitleWithFunction]");
-            return userTasks.ToList();
+            JobsByFunction jobsByFunction = new JobsByFunction();
+            if(name != null)
+            {
+                var functions = await _context.Functions.FirstOrDefaultAsync(f=>f.FunctionName.Equals(name));
+                if(functions != null)
+                {
+                    var job = await _context.Jobs.Where(j=>j.FunctionId == functions.FunctionId).ToListAsync();
+                    jobsByFunction.FunctionName = functions.FunctionName;
+                    jobsByFunction.Count = job.Count();
+                    jobsByFunction.Jobs = job;
+                    return jobsByFunction;
+                }
+                else
+                {
+                    return jobsByFunction;
+                }
+            }
+            else
+            {
+                return jobsByFunction;
+            }
         }
+
+        // public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
+        // {
+        //     var conn = _context.Database.GetDbConnection();
+        //     var userTasks = await conn.QueryAsync<JobTitleWithFunctionClass>("EXEC [dbo].[SP_JobTitleWithFunction]");
+        //     return userTasks.ToList();
+        // }
     }
 }

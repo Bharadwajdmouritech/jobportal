@@ -11,7 +11,6 @@ namespace JobPortalAPI.Repository
     {
         private JobPortalDbContext _context;
         public IMasterRepository masterRepo {get; private set;}
-        public IJdRepository jdRepo {get; private set;}
         public IAdminRepository adminRepository {get; private set;}
         public IEmployeeRepository employeeRepository{get;private set;}
         public UnitOfWorkRepository(JobPortalDbContext context)
@@ -19,7 +18,6 @@ namespace JobPortalAPI.Repository
             _context = context;
             masterRepo = new MasterRepository(_context);
             adminRepository=new AdminRepository(_context);
-            jdRepo = new JdRepository(_context);
             employeeRepository = new EmployeeRepository(_context);
         }
     }

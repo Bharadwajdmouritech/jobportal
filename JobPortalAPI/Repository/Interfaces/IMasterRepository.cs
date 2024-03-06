@@ -11,10 +11,8 @@ namespace JobPortalAPI.Repository.Interfaces
     {
         Task<List<City>> GetAllCities();
         Task<City> GetCityById(int id);
-        Task<List<Designation>> GetAllDesignations();
-        Task<Designation> GetDesignationById(int id);
         Task<List<Roles>> GetAllJobFunctions();
         Task<Roles> GetJobFunctionById(int id);
-        Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction();
+        Task<JobsByFunction> GetJobsByFunctionName(string name);
     }
 }
