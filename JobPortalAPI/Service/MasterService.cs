@@ -24,14 +24,6 @@ namespace JobPortalAPI.Service
         {
             return await _unitOfWorkRepository.masterRepo.GetCityById(id);
         }
-        public async Task<List<Designation>> GetAllDesignations()
-        {
-            return await _unitOfWorkRepository.masterRepo.GetAllDesignations();
-        }
-        public async Task<Designation> GetDesignationById(int id)
-        {
-            return await _unitOfWorkRepository.masterRepo.GetDesignationById(id);
-        }
         public async Task<List<Roles>> GetAllJobFunctions()
         {
             return await _unitOfWorkRepository.masterRepo.GetAllJobFunctions();
@@ -40,9 +32,10 @@ namespace JobPortalAPI.Service
         {
             return await _unitOfWorkRepository.masterRepo.GetJobFunctionById(id);
         }
-        public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
+
+        public async Task<JobsByFunction> GetJobsByFunctionName(string name)
         {
-            return await _unitOfWorkRepository.masterRepo.GetSPJobTitleWithFunction();
+            return await _unitOfWorkRepository.masterRepo.GetJobsByFunctionName(name);
         }
     }
 }

@@ -35,21 +35,6 @@ namespace JobPortalAPI.Controllers
             return Ok(getAdmin);
         }
         [HttpGet]
-        [Route("GetAllDesignations")]
-        public async Task<ActionResult<List<Designation>>> GetAllDesignations()
-        {
-            var getAllAdmins = await _unitOfWorkService.masterService.GetAllDesignations();
-            return Ok(getAllAdmins);
-        }
-        
-        [HttpGet]
-        [Route("GetDesignationById")]
-        public async Task<ActionResult<Designation>> GetDesignationById(int id)
-        {
-            var getAdmin = await _unitOfWorkService.masterService.GetDesignationById(id);
-            return Ok(getAdmin);
-        }
-        [HttpGet]
         [Route("GetAllJobFunctions")]
         public async Task<ActionResult<List<Roles>>> GetAllJobFunctions()
         {
@@ -66,11 +51,11 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetSPJobTitleWithFunction")]
-        public async Task<List<JobTitleWithFunctionClass>> GetSPJobTitleWithFunction()
+        [Route("GetJobsByFunctionName")]
+        public async Task<ActionResult<Roles>> GetJobsByFunctionName(string name)
         {
-            var getSPJobTitleWithFunction = await _unitOfWorkService.masterService.GetSPJobTitleWithFunction();
-            return getSPJobTitleWithFunction;
+            var getAdmin = await _unitOfWorkService.masterService.GetJobsByFunctionName(name);
+            return Ok(getAdmin);
         }
     }
 }

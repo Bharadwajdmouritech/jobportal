@@ -59,7 +59,7 @@ namespace JobPortalAPI.Repository
                 adminToUpdate.ModifiedBy = admin.ModifiedBy;
                 adminToUpdate.ModifiedOn = admin.ModifiedOn;
                 adminToUpdate.CityId = admin.CityId;
-                adminToUpdate.DesignationId = admin.DesignationId;
+                adminToUpdate.FunctionId = admin.FunctionId;
                 await _jobPortalDbContext.SaveChangesAsync();
             }
         }

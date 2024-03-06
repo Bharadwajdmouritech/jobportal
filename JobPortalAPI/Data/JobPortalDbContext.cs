@@ -23,12 +23,13 @@ namespace JobPortalAPI.Data
 
         public virtual DbSet<City> Cities { get; set; }
 
-        public virtual DbSet<Designation> Designations { get; set; }
+        public virtual DbSet<Function> Functions { get; set; }
 
         public virtual DbSet<EmployeeInfo> EmployeeInfos { get; set; }
+        
         public virtual DbSet<EmployeeDocument> EmployeeDocuments { get; set; }
 
-        public virtual DbSet<JobDescription> JobDescriptions { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
 
         public virtual DbSet<Roles> Roles { get; set; }
 
