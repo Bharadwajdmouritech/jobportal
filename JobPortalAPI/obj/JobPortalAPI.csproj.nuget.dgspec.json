@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\poonamc\\Desktop\\Internal POC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {}
+    "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\poonamc\\Desktop\\Internal POC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {
+    "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\poonamc\\Desktop\\Internal POC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+        "projectUniqueName": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
         "projectName": "JobPortalAPI",
-        "projectPath": "C:\\Users\\poonamc\\Desktop\\Internal POC\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
-        "packagesPath": "C:\\Users\\poonamc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\poonamc\\Desktop\\Internal POC\\jobportal\\JobPortalAPI\\obj\\",
+        "projectPath": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+        "packagesPath": "C:\\Users\\venugopalna\\.nuget\\packages\\",
+        "outputPath": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\poonamc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\venugopalna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

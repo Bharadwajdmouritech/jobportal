@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobPortalAPI.Models;
 
-public class JobDescription
+public class Job
 {
-     [Key]
-    public int JobDescId { get; set; }
+    [Key]
+    public int JobId { get; set; }
 
     public string? CompanyName { get; set; }
 
@@ -21,14 +21,6 @@ public class JobDescription
 
     public string? Description { get; set; }
 
-    public int? AdminId { get; set; }
-
-    public int? CityId { get; set; }
-
-    public int? JobId { get; set; }
-
-    public int? DesignationId { get; set; }
-
     public DateTime? PostedDate { get; set; }
 
     public string? MandatorySkills { get; set; }
@@ -39,25 +31,17 @@ public class JobDescription
 
     public DateTime? ExpiryOfRole { get; set; }
 
-    public bool IsActive {get;set;}
-    
-    public int CreatedBy { get; set; }
+    public bool IsActive {get;set;} = true;
+    public int CreatedBy { get; set; } = 1;
 
-    public DateTime CreatedOn { get; set; }
+    public DateTime CreatedOn { get; set; } = DateTime.Now;
 
-    public int ModifiedBy { get; set; }
+    public int ModifiedBy { get; set; } = 1;
 
-    public DateTime ModifiedOn { get; set; }
-    
+    public DateTime ModifiedOn { get; set; } = DateTime.Now;
+
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
-
-    public virtual Admin? Admin { get; set; }
-
-    public virtual City? City { get; set; }
-
-    public virtual Designation? Designation { get; set; }
-
-    public virtual Roles? Roles { get; set; }
+    public virtual ICollection<fu_jo_ro> Fu_Jo_Ros { get; set; } = new List<fu_jo_ro>();
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobPortalAPI.Migrations
 {
     [DbContext(typeof(JobPortalDbContext))]
-    [Migration("20240306100452_InitialUpdateTables")]
-    partial class InitialUpdateTables
+    [Migration("20240307120413_initialaddtable")]
+    partial class initialaddtable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,6 +150,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<byte[]>("IdentityPhoto")
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ModifiedBy")
                         .HasColumnType("int");
@@ -293,20 +296,12 @@ namespace JobPortalAPI.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RolesRoleId")
-                        .HasColumnType("int");
-
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
                     b.HasKey("FunctionId");
-
-                    b.HasIndex("RolesRoleId");
 
                     b.ToTable("Functions");
                 });
@@ -319,14 +314,8 @@ namespace JobPortalAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
 
-                    b.Property<int?>("AdminId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Certification")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
@@ -345,9 +334,6 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<DateTime?>("ExpiryOfRole")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("FunctionId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -376,12 +362,6 @@ namespace JobPortalAPI.Migrations
                     b.Property<DateTime?>("PostedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RolesRoleId")
-                        .HasColumnType("int");
-
                     b.Property<byte[]>("RowTimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
@@ -389,18 +369,10 @@ namespace JobPortalAPI.Migrations
 
                     b.HasKey("JobId");
 
-                    b.HasIndex("AdminId");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("FunctionId");
-
-                    b.HasIndex("RolesRoleId");
-
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("JobPortalAPI.Models.Roles", b =>
+            modelBuilder.Entity("JobPortalAPI.Models.Role", b =>
                 {
                     b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
@@ -423,7 +395,7 @@ namespace JobPortalAPI.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("RoleName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("RowTimeStamp")
@@ -434,6 +406,62 @@ namespace JobPortalAPI.Migrations
                     b.HasKey("RoleId");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("JobPortalAPI.Models.fu_jo_ro", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FunctionId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("RowTimeStamp")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("FunctionId");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Fu_Jo_Ros");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.Admin", b =>
@@ -467,45 +495,46 @@ namespace JobPortalAPI.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("JobPortalAPI.Models.Function", b =>
+            modelBuilder.Entity("JobPortalAPI.Models.fu_jo_ro", b =>
                 {
-                    b.HasOne("JobPortalAPI.Models.Roles", "Roles")
-                        .WithMany("Function")
-                        .HasForeignKey("RolesRoleId");
-
-                    b.Navigation("Roles");
-                });
-
-            modelBuilder.Entity("JobPortalAPI.Models.Job", b =>
-                {
-                    b.HasOne("JobPortalAPI.Models.Admin", "Admin")
-                        .WithMany("Jobs")
+                    b.HasOne("JobPortalAPI.Models.Admin", null)
+                        .WithMany("Fu_Jo_Ros")
                         .HasForeignKey("AdminId");
 
-                    b.HasOne("JobPortalAPI.Models.City", "City")
-                        .WithMany("Jobs")
+                    b.HasOne("JobPortalAPI.Models.City", "Cities")
+                        .WithMany("Fu_Jo_Ros")
                         .HasForeignKey("CityId");
 
                     b.HasOne("JobPortalAPI.Models.Function", "Functions")
-                        .WithMany("Jobs")
-                        .HasForeignKey("FunctionId");
+                        .WithMany("Fu_Jo_Ros")
+                        .HasForeignKey("FunctionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("JobPortalAPI.Models.Roles", "Roles")
-                        .WithMany("Jobs")
-                        .HasForeignKey("RolesRoleId");
+                    b.HasOne("JobPortalAPI.Models.Job", "Jobs")
+                        .WithMany("Fu_Jo_Ros")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Admin");
+                    b.HasOne("JobPortalAPI.Models.Role", "Roles")
+                        .WithMany("Designations")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("City");
+                    b.Navigation("Cities");
 
                     b.Navigation("Functions");
+
+                    b.Navigation("Jobs");
 
                     b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.Admin", b =>
                 {
-                    b.Navigation("Jobs");
+                    b.Navigation("Fu_Jo_Ros");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.City", b =>
@@ -514,7 +543,7 @@ namespace JobPortalAPI.Migrations
 
                     b.Navigation("EmployeeInfos");
 
-                    b.Navigation("Jobs");
+                    b.Navigation("Fu_Jo_Ros");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.EmployeeInfo", b =>
@@ -526,14 +555,17 @@ namespace JobPortalAPI.Migrations
                 {
                     b.Navigation("Admins");
 
-                    b.Navigation("Jobs");
+                    b.Navigation("Fu_Jo_Ros");
                 });
 
-            modelBuilder.Entity("JobPortalAPI.Models.Roles", b =>
+            modelBuilder.Entity("JobPortalAPI.Models.Job", b =>
                 {
-                    b.Navigation("Function");
+                    b.Navigation("Fu_Jo_Ros");
+                });
 
-                    b.Navigation("Jobs");
+            modelBuilder.Entity("JobPortalAPI.Models.Role", b =>
+                {
+                    b.Navigation("Designations");
                 });
 #pragma warning restore 612, 618
         }

@@ -20,39 +20,8 @@ namespace JobPortalAPI.Controllers
         }
         
         [HttpGet]
-        [Route("GetAllCities")]
-        public async Task<ActionResult<List<City>>> GetAllCities()
-        {
-            var getAllAdmins = await _unitOfWorkService.masterService.GetAllCities();
-            return Ok(getAllAdmins);
-        }
-        
-        [HttpGet]
-        [Route("GetCityById")]
-        public async Task<ActionResult<City>> GetCityById(int id)
-        {
-            var getAdmin = await _unitOfWorkService.masterService.GetCityById(id);
-            return Ok(getAdmin);
-        }
-        [HttpGet]
-        [Route("GetAllJobFunctions")]
-        public async Task<ActionResult<List<Roles>>> GetAllJobFunctions()
-        {
-            var getAllAdmins = await _unitOfWorkService.masterService.GetAllJobFunctions();
-            return Ok(getAllAdmins);
-        }
-        
-        [HttpGet]
-        [Route("GetJobFunctionById")]
-        public async Task<ActionResult<Roles>> GetJobFunctionById(int id)
-        {
-            var getAdmin = await _unitOfWorkService.masterService.GetJobFunctionById(id);
-            return Ok(getAdmin);
-        }
-
-        [HttpGet]
         [Route("GetJobsByFunctionName")]
-        public async Task<ActionResult<Roles>> GetJobsByFunctionName(string name)
+        public async Task<ActionResult<JobsByFunction>> GetJobsByFunctionName(string name)
         {
             var getAdmin = await _unitOfWorkService.masterService.GetJobsByFunctionName(name);
             return Ok(getAdmin);
