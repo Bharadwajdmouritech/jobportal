@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JobPortalAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initialaddtable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,12 +32,60 @@ namespace JobPortalAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Functions",
+                columns: table => new
+                {
+                    FunctionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FunctionName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Functions", x => x.FunctionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Jobs",
+                columns: table => new
+                {
+                    JobId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Experience = table.Column<int>(type: "int", nullable: true),
+                    JobTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LinkedinUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    MandatorySkills = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OptionalSkills = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Certification = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExpiryOfRole = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jobs", x => x.JobId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -89,29 +137,38 @@ namespace JobPortalAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Designations",
+                name: "Admins",
                 columns: table => new
                 {
-                    DesignationId = table.Column<int>(type: "int", nullable: false)
+                    AdminId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DesignationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoleId = table.Column<int>(type: "int", nullable: true),
-                    RolesRoleId = table.Column<int>(type: "int", nullable: true),
+                    AdminName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LinkedinUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
+                    RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
+                    CityId = table.Column<int>(type: "int", nullable: true),
+                    FunctionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Designations", x => x.DesignationId);
+                    table.PrimaryKey("PK_Admins", x => x.AdminId);
                     table.ForeignKey(
-                        name: "FK_Designations_Roles_RolesRoleId",
-                        column: x => x.RolesRoleId,
-                        principalTable: "Roles",
-                        principalColumn: "RoleId");
+                        name: "FK_Admins_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "CityId");
+                    table.ForeignKey(
+                        name: "FK_Admins_Functions_FunctionId",
+                        column: x => x.FunctionId,
+                        principalTable: "Functions",
+                        principalColumn: "FunctionId");
                 });
 
             migrationBuilder.CreateTable(
@@ -130,6 +187,7 @@ namespace JobPortalAPI.Migrations
                     TenthMarksheet = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     TwelthMarksheet = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Resume = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<int>(type: "int", nullable: false),
@@ -148,92 +206,53 @@ namespace JobPortalAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Admins",
+                name: "Fu_Jo_Ros",
                 columns: table => new
                 {
-                    AdminId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AdminName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmailId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LinkedinUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CityId = table.Column<int>(type: "int", nullable: true),
+                    JobId = table.Column<int>(type: "int", nullable: false),
+                    FunctionId = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
-                    CityId = table.Column<int>(type: "int", nullable: true),
-                    DesignationId = table.Column<int>(type: "int", nullable: true)
+                    AdminId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Admins", x => x.AdminId);
+                    table.PrimaryKey("PK_Fu_Jo_Ros", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Admins_Cities_CityId",
-                        column: x => x.CityId,
-                        principalTable: "Cities",
-                        principalColumn: "CityId");
-                    table.ForeignKey(
-                        name: "FK_Admins_Designations_DesignationId",
-                        column: x => x.DesignationId,
-                        principalTable: "Designations",
-                        principalColumn: "DesignationId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "JobDescriptions",
-                columns: table => new
-                {
-                    JobDescId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Experience = table.Column<int>(type: "int", nullable: true),
-                    JobTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LinkedinUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AdminId = table.Column<int>(type: "int", nullable: true),
-                    CityId = table.Column<int>(type: "int", nullable: true),
-                    JobId = table.Column<int>(type: "int", nullable: true),
-                    DesignationId = table.Column<int>(type: "int", nullable: true),
-                    PostedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    MandatorySkills = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OptionalSkills = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Certification = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ExpiryOfRole = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RowTimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
-                    RolesRoleId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_JobDescriptions", x => x.JobDescId);
-                    table.ForeignKey(
-                        name: "FK_JobDescriptions_Admins_AdminId",
+                        name: "FK_Fu_Jo_Ros_Admins_AdminId",
                         column: x => x.AdminId,
                         principalTable: "Admins",
                         principalColumn: "AdminId");
                     table.ForeignKey(
-                        name: "FK_JobDescriptions_Cities_CityId",
+                        name: "FK_Fu_Jo_Ros_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "CityId");
                     table.ForeignKey(
-                        name: "FK_JobDescriptions_Designations_DesignationId",
-                        column: x => x.DesignationId,
-                        principalTable: "Designations",
-                        principalColumn: "DesignationId");
+                        name: "FK_Fu_Jo_Ros_Functions_FunctionId",
+                        column: x => x.FunctionId,
+                        principalTable: "Functions",
+                        principalColumn: "FunctionId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_JobDescriptions_Roles_RolesRoleId",
-                        column: x => x.RolesRoleId,
+                        name: "FK_Fu_Jo_Ros_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "JobId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Fu_Jo_Ros_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "RoleId");
+                        principalColumn: "RoleId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -242,14 +261,9 @@ namespace JobPortalAPI.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Admins_DesignationId",
+                name: "IX_Admins_FunctionId",
                 table: "Admins",
-                column: "DesignationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Designations_RolesRoleId",
-                table: "Designations",
-                column: "RolesRoleId");
+                column: "FunctionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EmployeeDocuments_EmployeeInfoEmployeeId",
@@ -262,24 +276,29 @@ namespace JobPortalAPI.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobDescriptions_AdminId",
-                table: "JobDescriptions",
+                name: "IX_Fu_Jo_Ros_AdminId",
+                table: "Fu_Jo_Ros",
                 column: "AdminId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobDescriptions_CityId",
-                table: "JobDescriptions",
+                name: "IX_Fu_Jo_Ros_CityId",
+                table: "Fu_Jo_Ros",
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobDescriptions_DesignationId",
-                table: "JobDescriptions",
-                column: "DesignationId");
+                name: "IX_Fu_Jo_Ros_FunctionId",
+                table: "Fu_Jo_Ros",
+                column: "FunctionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobDescriptions_RolesRoleId",
-                table: "JobDescriptions",
-                column: "RolesRoleId");
+                name: "IX_Fu_Jo_Ros_JobId",
+                table: "Fu_Jo_Ros",
+                column: "JobId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Fu_Jo_Ros_RoleId",
+                table: "Fu_Jo_Ros",
+                column: "RoleId");
         }
 
         /// <inheritdoc />
@@ -289,7 +308,7 @@ namespace JobPortalAPI.Migrations
                 name: "EmployeeDocuments");
 
             migrationBuilder.DropTable(
-                name: "JobDescriptions");
+                name: "Fu_Jo_Ros");
 
             migrationBuilder.DropTable(
                 name: "EmployeeInfos");
@@ -298,13 +317,16 @@ namespace JobPortalAPI.Migrations
                 name: "Admins");
 
             migrationBuilder.DropTable(
-                name: "Cities");
-
-            migrationBuilder.DropTable(
-                name: "Designations");
+                name: "Jobs");
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "Functions");
         }
     }
 }

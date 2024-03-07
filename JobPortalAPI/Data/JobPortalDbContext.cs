@@ -31,7 +31,9 @@ namespace JobPortalAPI.Data
 
         public virtual DbSet<Job> Jobs { get; set; }
 
-        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+
+        public virtual DbSet<fu_jo_ro> Fu_Jo_Ros {get;set;}
 
             
     }

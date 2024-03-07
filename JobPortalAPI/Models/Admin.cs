@@ -19,15 +19,15 @@ public class Admin
 
     public DateTime JoiningDate{get;set;}
 
-    public bool IsActive {get;set;}
+    public bool IsActive {get;set;} = true;
 
-    public int CreatedBy { get; set; }
+    public int CreatedBy { get; set; } = 1;
 
-    public DateTime CreatedOn { get; set; }
+    public DateTime CreatedOn { get; set; } = DateTime.Now;
 
-    public int ModifiedBy { get; set; }
+    public int ModifiedBy { get; set; } = 1;
 
-    public DateTime ModifiedOn { get; set; }
+    public DateTime ModifiedOn { get; set; } = DateTime.Now;
     
     [Timestamp]
     [ConcurrencyCheck]
@@ -36,8 +36,8 @@ public class Admin
     public int? CityId { get; set; }
     public virtual City? City { get; set; }
     
-    public int? DesignationId { get; set; }
-    public virtual Designation? Designation { get; set; }
+    public int? FunctionId { get; set; }
+    public virtual Function? Functions { get; set; }
 
-    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
+    public virtual ICollection<fu_jo_ro> Fu_Jo_Ros { get; set; } = new List<fu_jo_ro>();
 }

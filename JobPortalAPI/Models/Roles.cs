@@ -4,25 +4,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobPortalAPI.Models;
 
-public class Roles
+public class Role
 {
-     [Key]
+    [Key]
     public int RoleId { get; set; }
 
-    public string? Role { get; set; }
-    public bool IsActive {get;set;}
-    
-    public int CreatedBy { get; set; }
+    public string? RoleName { get; set; }
+    public bool IsActive { get; set; } = true;
+    public int CreatedBy { get; set; } = 1;
 
-    public DateTime CreatedOn { get; set; }
+    public DateTime CreatedOn { get; set; } = DateTime.Now;
 
-    public int ModifiedBy { get; set; }
+    public int ModifiedBy { get; set; } = 1;
 
-    public DateTime ModifiedOn { get; set; }
+    public DateTime ModifiedOn { get; set; } = DateTime.Now;
 
     [Timestamp]
     [ConcurrencyCheck]
     public byte[] RowTimeStamp { get; set; }
-    public virtual ICollection<Designation> Designations {get;set;}=new List<Designation>();
-    public virtual ICollection<JobDescription> JobDescriptions { get; set; } = new List<JobDescription>();
+    public virtual ICollection<fu_jo_ro> Designations { get; set; } = new List<fu_jo_ro>();
 }

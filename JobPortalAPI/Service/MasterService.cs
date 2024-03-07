@@ -16,23 +16,6 @@ namespace JobPortalAPI.Service
         {
             _unitOfWorkRepository = unitOfWorkRepository;
         }
-        public async Task<List<City>> GetAllCities()
-        {
-            return await _unitOfWorkRepository.masterRepo.GetAllCities();
-        }
-        public async Task<City> GetCityById(int id)
-        {
-            return await _unitOfWorkRepository.masterRepo.GetCityById(id);
-        }
-        public async Task<List<Roles>> GetAllJobFunctions()
-        {
-            return await _unitOfWorkRepository.masterRepo.GetAllJobFunctions();
-        }
-        public async Task<Roles> GetJobFunctionById(int id)
-        {
-            return await _unitOfWorkRepository.masterRepo.GetJobFunctionById(id);
-        }
-
         public async Task<JobsByFunction> GetJobsByFunctionName(string name)
         {
             return await _unitOfWorkRepository.masterRepo.GetJobsByFunctionName(name);
