@@ -38,15 +38,18 @@ namespace JobPortalAPI.Repository
         public async Task<JobsByFunction> GetJobsByFunctionName(string name)
         {
             JobsByFunction jobsByFunction = new JobsByFunction();
-            if(name != null)
+            if (name != null)
             {
-                var functions = await _context.Functions.FirstOrDefaultAsync(f=>f.FunctionName.Equals(name));
-                if(functions != null)
+                var functions = await _context.Functions.FirstOrDefaultAsync(f => f.FunctionName.Equals(name));
+                if (functions != null)
                 {
-                    var job = await _context.Jobs.Where(j=>j.FunctionId == functions.FunctionId).ToListAsync();
+                    var job = await _context.Jobs.Where(j => j.FunctionId == functions.FunctionId).ToListAsync();
                     jobsByFunction.FunctionName = functions.FunctionName;
                     jobsByFunction.Count = job.Count();
-                    jobsByFunction.Jobs = job;
+                    foreach (var j in job)
+                    {
+                        jobsByFunction.JobNames.Add(j.JobTitle);
+                    }
                     return jobsByFunction;
                 }
                 else
