@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using JobPortalAPI.Models;
 using JobPortalAPI.Service.Interfaces;
 using JobPortalAPI.SP_Models;
@@ -18,13 +19,16 @@ namespace JobPortalAPI.Controllers
         {
             _unitOfWorkService = unitOfWorkService;
         }
-        
+
         [HttpGet]
         [Route("GetJobsByFunctionName")]
         public async Task<ActionResult<JobsByFunction>> GetJobsByFunctionName(string name)
         {
             var getAdmin = await _unitOfWorkService.masterService.GetJobsByFunctionName(name);
-            return Ok(getAdmin);
+            if (getAdmin != null)
+                return Ok(getAdmin);
+            else
+                return NotFound($"No active function with name '{name}' was found.");
         }
     }
 }
