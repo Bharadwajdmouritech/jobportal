@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {}
+    "C:\\Users\\akhilbac\\Repos\\Job_Portal\\Job_PortalAPI\\JobPortalAPI\\JobPortalAPI.csproj": {}
   },
   "projects": {
-    "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj": {
+    "C:\\Users\\akhilbac\\Repos\\Job_Portal\\Job_PortalAPI\\JobPortalAPI\\JobPortalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\akhilbac\\Repos\\Job_Portal\\Job_PortalAPI\\JobPortalAPI\\JobPortalAPI.csproj",
         "projectName": "JobPortalAPI",
-        "projectPath": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\JobPortalAPI.csproj",
-        "packagesPath": "C:\\Users\\venugopalna\\.nuget\\packages\\",
-        "outputPath": "D:\\JobPortalGit\\NEW JOB\\jobportal\\JobPortalAPI\\obj\\",
+        "projectPath": "C:\\Users\\akhilbac\\Repos\\Job_Portal\\Job_PortalAPI\\JobPortalAPI\\JobPortalAPI.csproj",
+        "packagesPath": "C:\\Users\\akhilbac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\akhilbac\\Repos\\Job_Portal\\Job_PortalAPI\\JobPortalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\venugopalna\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\akhilbac\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
